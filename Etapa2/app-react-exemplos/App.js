@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button ,Image } from 'react-native';
+import { StyleSheet, Text, View, Button ,Image, TextInput } from 'react-native';
 
 
 export default function App() {
   const [counter, setCounter] = useState(0);
+
+
+  /// crud em memória
+const [items, setItems] = useState([]);
+const [text, setText] = useState('');
+const [editItemId, setEditItemId] = useState(null);
+const [editItemText, setEditItemText] = useState('');
 
 
   const incrementCounter = () => {
@@ -17,14 +24,32 @@ export default function App() {
   };
 
 
-
-
-  /// crud em memória
-  const Increment = () => {
-    setCounter(counter + 1);
+  const addItem = () => {
+    if (text.trim() === '') {
+      return;
+    }
+    const newItem = {
+      id: Math.random().toString(),
+      text: text.trim()
+    }
+    setItems([...items, newItem]);
+    setText('');
+    console.log(items);
   }
+
+
   return (
     <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        value={text}
+        onChangeText={setText}
+        placeholder='Enter text item'
+      />
+      <Button
+        title='Add Item'
+        onPress={addItem}
+      />
       <Text style={styles.text}>Olá App React Native - Atualiza!</Text>
       <Image
         source={{uri: "https://picsum.photos/200"}}
@@ -57,8 +82,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 });
-
-
 
 
 
