@@ -20,6 +20,9 @@ export default function App() {
 
 
   /// crud em memória
+  const Increment = () => {
+    setCounter(counter + 1);
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Olá App React Native - Atualiza!</Text>
