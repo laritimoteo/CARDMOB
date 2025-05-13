@@ -8,7 +8,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <List />
+     <List />
+        <View style={styles.redbox}></View>
+        <View style={styles.bluebox}></View>
+        <View style={styles.blackbox}></View>
     </View>
   );
 }
@@ -16,58 +19,27 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
-    marginTop: 60,
-    backgroundColor: '#ffe0e9',
-    
-  },
-  text: {
-    fontSize: 24,
-  },
-  buttonContainer: {
-    flexDirection: 'row'
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    backgroundColor: 'pink',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  list: {
-    marginTop: 20,
-  },
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
+    alignItems: 'center',
+    backgroundColor: '#E0F7FA', 
+    height: 600,
+    marginTop: 150,
   },
-  itemText: {
-    flex: 1,
-    marginRight: 10,
-    
+  redbox: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#FFC1C1', 
+    borderRadius: 50,
   },
-  buttons: {
-    flexDirection: 'row',
-    
-    
+  bluebox: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#ADD8E6', 
   },
-  editInput: {
-    flex: 1,
-    marginRight: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingHorizontal: 10,
-  }
-  
-  
+  blackbox: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#D3D3D3',
+  },
 });
-
-
-
