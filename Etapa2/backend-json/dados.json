@@ -40,5 +40,32 @@
       "id": "7755",
       "text": "Novo item"
     }
+  ],
+  "compras": [
+    {
+      "id": "7954",
+      "item": "morango",
+      "quantidade": 234
+    },
+    {
+      "item": "arroz",
+      "quantidade": 256,
+      "id": "8af0"
+    },
+    {
+      "id": "95e3",
+      "item": "ameixa",
+      "quantidade": 1
+    },
+    {
+      "id": "0fdc",
+      "item": "torta de morango",
+      "quantidade": 67
+    },
+    {
+      "id": "9f99",
+      "item": "bolo de cenoura",
+      "quantidade": 23
+    }
   ]
 }
