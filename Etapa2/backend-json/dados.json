@@ -67,5 +67,31 @@
       "item": "bolo de cenoura",
       "quantidade": 23
     }
+  ],
+  "products": [
+    {
+      "id": "f4cc",
+      "name": "Maça do amor",
+      "description": "Maçã crocante coberta com calda de açúcar vermelha e brilhante. ",
+      "price": 35
+    },
+    {
+      "id": "4411",
+      "name": "Torta de Maracuja",
+      "description": " sobremesa cremosa com mousse de maracujá sobre uma base crocante, finalizada com calda da fruta. Refrescante e deliciosa.\u0000",
+      "price": 40
+    },
+    {
+      "id": "a11d",
+      "name": "Trufa",
+      "description": "bombom sofisticado com recheio macio e intenso sabor de chocolate belga. Um pequeno luxo a cada mordida.",
+      "price": 15
+    },
+    {
+      "id": "1695",
+      "name": "Brownie de Nutella",
+      "description": " pedaços intensos de brownie com textura densa e úmida, mergulhados no sabor marcante da Nutella. Uma explosão de chocolate em cada mordida.",
+      "price": 12
+    }
   ]
 }
