@@ -10,6 +10,7 @@ import HomeScreen from "../screens/HomeScreen";
 // importar depois que implementar: DetailsScreen, SettingsScreen
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
+import CartScreen from "../screens/cart/CartScreen";
 
 const AppStack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -23,6 +24,10 @@ function TabNavigator() {
         tabBarIcon: ({ color, focused, size }) => {
           let iconName;
 
+          if (route.name === "Cart") {
+            iconName = focused ? "shopping-cart" : "shopping-cart";
+          }
+          
           if (route.name === "Catalog") {
             iconName = focused ? "tags" : "tags";
           }
@@ -38,6 +43,12 @@ function TabNavigator() {
       <Tab.Screen name="Catalog" 
       component={CatalogScreen}
       options={{title: 'Menu'}}/>
+
+    <Tab.Screen
+      name="Cart"
+      component={CartScreen}
+      options={{ title: 'Seu Carrinho' }}
+    />
 
       <Tab.Screen name="Settings" component={HomeScreen} />
       <Tab.Screen name="Register" component={RegisterScreen} />
