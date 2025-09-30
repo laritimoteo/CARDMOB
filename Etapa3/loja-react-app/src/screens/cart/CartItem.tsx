@@ -8,6 +8,7 @@ const CartItem = ({ item }: any) => {
     const { addToCart, removeFromCart } = useShop();
 
     const handleRemove = (item: any) => {
+        removeFromCart(item.id)
         console.log('exclui produto');
     }
 
@@ -28,8 +29,9 @@ const CartItem = ({ item }: any) => {
                         <Text style={styles.buttonText}>+</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => handleRemove(item)} style={styles.button}>
-                        <Text style={styles.buttonText}>Remover</Text>
+                    <TouchableOpacity onPress={() => handleRemove(item)} style=
+                    {styles.removeButton}>
+                        <Text style={styles.removeButtonText}>Remover</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -38,7 +40,6 @@ const CartItem = ({ item }: any) => {
 
 }
 export default CartItem;
-
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -48,16 +49,47 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
     },
     image: {
-        width: '50%',
+        width: 100,
         height: 100,
-        borderRadius: 8,
+        borderRadius: 10,
         borderColor: '#ddd',
+        marginRight: 10
     },
-    name: {},
-    quantity: {},
-    price: {},
-    button: {},
-    buttonText: {},
-    quantityValue: {},
-
+    name: {
+        fontSize: 16,
+    },
+    quantity: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginVertical: 5,
+    },
+    price: {
+        fontSize: 14,
+        color: '#007BFF',
+    },
+    button: {
+        backgroundColor: '#007BFF',
+        borderRadius: 5,
+        padding: 5,
+        marginHorizontal: 5,
+    },
+    buttonText: {
+        fontSize: 18,
+        color: '#fff',
+    },
+    quantityValue: {
+        marginHorizontal: 10,
+        fontSize: 16,
+    },
+    removeButton: {
+        marginLeft: 10,
+        backgroundColor: '#FF0000',
+        padding: 10,
+        borderRadius: 5,
+    },
+    removeButtonText: {
+        color: '#fff',
+        textAlign: 'center'
+    },
 });
+
