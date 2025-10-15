@@ -1,20 +1,48 @@
-import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, Button, StyleSheet, Image } from "react-native";
 
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth}  from '../../contexts/AuthContext';
 
+import { requestProfileById } from "../../services/profileService";
+
 function ProfileScreen({ navigation }: any ) {
   const { theme, toggleTheme } = useTheme();
   const { logout } = useAuth();
+  const [user, setUser] = useState({});
+
+  // novo
+
+useEffect(() => {
+  const fetchProfile = async () => {
+    try {
+      const user = await requestProfileById(1);
+      console.log(user);
+      setUser(user);
+      console.log('Carregou o usuário!');
+    } catch (error) {
+      console.error('Erro ao carregar o perfil do usuário:', error);
+    }
+  };
+
+  fetchProfile();
+}, []);
+
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Text style={{ color: theme.colors.text, marginBottom: theme.spacing(1) }}>
-        Home Screen
-      </Text>
+        Profile Screen
+        </Text>
+    <View>
+      <Image source={{ uri: user.image }} style={styles.image} />
+    </View>
+    <Text style={styles.text}>{user.name}</Text>
+    <Text style={styles.text}>{user.email}</Text>
+
+    
       <Button title="Alternar Tema" color={theme.colors.primary} 
-onPress={toggleTheme} />
+       onPress={toggleTheme} />
       <Button title="Ir para Detalhes" onPress={ () => navigation.navigate
         ('Details')} />
 
@@ -35,4 +63,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  image: {
+    height: 100,
+    width: 100
+  },
+  text:{
+    fontSize:14
+  }
 });
